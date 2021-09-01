@@ -1,0 +1,9 @@
+#!/bin/bash
+# 列出 ES 索引
+
+echo 'List all elasticsearch indexes.'
+echo
+echo "host: $ES_HOST"
+echo
+
+curl -u $ES_USERNAME:$ES_PASSWORD -XGET "$ES_SCHEME://$ES_HOST:$ES_PORT/_cat/indices?v&pretty"

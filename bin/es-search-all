@@ -1,0 +1,25 @@
+#!/bin/bash
+
+print_usage() {
+    echo "Usage:"
+    echo "  `basename $0` <index>"
+    echo
+}
+
+if [ $# != 1 ]; then
+    print_usage
+    exit -1
+fi
+
+index=$1
+query='{"query":{"match_all":{}}}'
+
+echo 'Search an index, return the first page of all documents.'
+echo
+echo "host: $ES_HOST"
+echo
+echo "index: $index"
+echo
+
+cmd="curl -sS -u $ES_USERNAME:$ES_PASSWORD -XGET -H 'Content-Type: application/json' '$ES_SCHEME://$ES_HOST:$ES_PORT/$index/_search?pretty' -d '$query'"
+echo $cmd | bash

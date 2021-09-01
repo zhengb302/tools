@@ -1,0 +1,16 @@
+#!/bin/bash
+
+bin_dir=$HOME/bin
+
+if [ ! -d $bin_dir ]; then
+    mkdir $bin_dir
+fi
+
+echo 'install bin files...'
+for file in bin/*
+do
+    filename=`basename $file`
+    targetFile=$bin_dir/$filename
+    cp -f $file $targetFile && chmod +x $targetFile
+    echo "$file -> $targetFile"
+done
