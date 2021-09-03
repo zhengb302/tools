@@ -1,0 +1,36 @@
+#!/bin/bash
+# 删除某个 ES 索引
+
+print_usage() {
+    echo "Usage:"
+    echo "  `basename $0` <index>"
+    echo
+}
+
+if [ $# -ne 1 ]; then
+    print_usage
+    exit -1
+fi
+
+index=$1
+
+read -r -p "You will delete index \"$index\". Are you sure? [Y/n] " input
+case $input in
+    [yY])
+        echo "Yes Chosen!"
+        echo
+        ;;
+    *)
+        echo "You are not sure, exit."
+        exit 0
+        ;;
+esac
+
+echo 'Drop an index.'
+echo
+echo "host: $ES_HOST"
+echo
+echo "index: $index"
+echo
+
+curl -sS -u $ES_USERNAME:$ES_PASSWORD -XDELETE "$ES_SCHEME://$ES_HOST:$ES_PORT/$index?pretty"
