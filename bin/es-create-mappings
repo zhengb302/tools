@@ -1,0 +1,25 @@
+#!/bin/bash
+
+print_usage() {
+    echo "Usage:"
+    echo "  `basename $0` <index> <mappings>"
+    echo
+}
+
+if [ $# != 2 ]; then
+    print_usage
+    exit -1
+fi
+
+index=$1
+mappings=$2
+
+echo 'Create mappings for an index.'
+echo
+echo "host: $ES_HOST"
+echo
+echo "index: $index"
+echo
+
+cmd="curl -u $ES_USERNAME:$ES_PASSWORD -XPUT -H 'Content-Type: application/json' '$ES_SCHEME://$ES_HOST:$ES_PORT/$index?pretty' -d '$mappings'"
+echo $cmd | bash

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+print_usage() {
+    echo "Usage:"
+    echo "  `basename $0` <index> <doc id>"
+    echo
+}
+
+if [ $# != 2 ]; then
+    print_usage
+    exit -1
+fi
+
+index=$1
+id=$2
+
+echo 'Get a document.'
+echo
+echo "host: $ES_HOST"
+echo
+echo "index: $index"
+echo
+
+curl -sS -u $ES_USERNAME:$ES_PASSWORD -XGET $ES_SCHEME://$ES_HOST:$ES_PORT/$index/_doc/$id?pretty

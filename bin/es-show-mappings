@@ -13,7 +13,7 @@ fi
 
 index=$1
 
-echo 'Show the index mapping.'
+echo 'Show the index mappings.'
 echo
 echo "host: $ES_HOST"
 echo
