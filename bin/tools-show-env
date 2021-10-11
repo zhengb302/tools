@@ -1,0 +1,24 @@
+#!/bin/bash
+# 显示某个env的内容
+
+print_usage() {
+    echo "Usage:"
+    echo "  `basename $0` <env-name>"
+    echo
+}
+
+if [ $# != 1 ]; then
+    print_usage
+    exit -1
+fi
+
+env_name=$1
+
+env_dir=$HOME/.tools-config/env
+env_file=$env_dir/$env_name
+
+if [ ! -f $env_file ]; then
+    echo "env \"$env_name\" not existed."
+fi
+
+cat $env_file

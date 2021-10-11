@@ -1,0 +1,11 @@
+#!/bin/bash
+# 列出所有的env
+
+env_dir=$HOME/.tools-config/env
+
+for file in $env_dir/*
+do
+    if [[ $file != *.example ]]; then
+        echo $(basename $file)
+    fi
+done

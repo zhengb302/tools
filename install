@@ -1,10 +1,26 @@
 #!/bin/bash
 
 bin_dir=$HOME/bin
+config_dir=$HOME/.tools-config
+env_dir=$config_dir/env
 
 if [ ! -d $bin_dir ]; then
     mkdir $bin_dir
 fi
+
+if [ ! -d $env_dir ]; then
+    mkdir -p $env_dir
+fi
+
+echo 'copying env example files...'
+for file in config/env/*
+do
+    filename=`basename $file`
+    targetFile=$env_dir/$filename
+    cp -f $file $targetFile
+    echo "$file -> $targetFile"
+done
+echo
 
 echo 'installing bin files...'
 for file in bin/*
