@@ -6,6 +6,6 @@ env_dir=$HOME/.tools-config/env
 for file in $env_dir/*
 do
     if [[ $file != *.example ]]; then
-        echo $(basename $file)
+        echo "$(basename $file) => $file"
     fi
 done

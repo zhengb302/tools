@@ -19,6 +19,7 @@ env_file=$env_dir/$env_name
 
 if [ ! -f $env_file ]; then
     echo "env \"$env_name\" not existed."
+    exit -1
 fi
 
 cat $env_file
