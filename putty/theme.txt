@@ -1,0 +1,9 @@
+
+Cursor Appearance：Vertical line
+
+Font：Courier New, 12-point
+
+Window Size：120 columns，25 rows
+
+Colors ANSI Blud Bold：rgb(109, 143, 245)
+
