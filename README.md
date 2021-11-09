@@ -27,22 +27,31 @@ vim es-production
 设置默认的环境配置，在`.bashrc`文件中加入以下代码：
 ```bash
 # 设置 Elasticsearch 的默认环境配置
-# 把测试环境配置作为默认的环境配置，以防止直接操作生产环境的数据。只有在需要的时候才临时切换到生产环境。
-source $HOME/.tools-config/env/es-test
+# 把测试环境配置作为默认的环境配置，以防止直接操作生产环境的数据。
+# 只有在需要的时候才临时切换到生产环境。
+if [ -z "$TOOLS_SWITCHING_ENV" ]; then
+    source $HOME/.tools-config/env/es-test
+fi
 ```
 
 ### 切换环境配置
 
-打开一个新的Bash。
+打开一个新的终端。
 
 列出所有的环境：
 ```bash
 tools-ls-envs
 ```
 
-Elasticsearch切换为生产环境：
-```bash
-source $HOME/.tools-config/env/es-production
+输出以下内容：
+```
+es-production
+es-test
 ```
 
-操作完毕，关闭当前Bash。
+Elasticsearch切换为生产环境：
+```bash
+tools-switch-env es-production
+```
+
+操作完毕，“Ctrl + D”退出当前配置环境、恢复到先前的配置环境，再输入“Ctrl + D”退出当前终端。

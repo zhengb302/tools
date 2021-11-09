@@ -25,6 +25,10 @@ fi
 # 加载新的配置环境
 . $env_file
 
+# 设置一个环境变量以指示正在切换环境，以能够在.bashrc文件里判断是否正在切换环境，
+# 避免再去加载默认的配置环境
+export TOOLS_SWITCHING_ENV=1
+
 echo "Enter new environment \"$env_name\"."
 
 # 打开一个新的bash实例
