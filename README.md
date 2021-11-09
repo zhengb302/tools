@@ -43,7 +43,7 @@ fi
 tools-ls-envs
 ```
 
-输出以下内容：
+上面的命令将输出以下内容：
 ```
 es-production
 es-test
@@ -54,4 +54,4 @@ Elasticsearch切换为生产环境：
 tools-switch-env es-production
 ```
 
-操作完毕，“Ctrl + D”退出当前配置环境、恢复到先前的配置环境，再输入“Ctrl + D”退出当前终端。
+操作完毕，“Ctrl + D”退出当前配置环境，恢复到先前的配置环境，再输入“Ctrl + D”退出当前终端。
