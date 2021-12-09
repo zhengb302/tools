@@ -1,0 +1,23 @@
+#!/bin/bash
+
+print_usage() {
+    echo "Usage:"
+    echo "  `basename $0` <index>"
+    echo
+}
+
+if [ $# -ne 1 ]; then
+    print_usage
+    exit -1
+fi
+
+index=$1
+
+echo 'Show the index settings.'
+echo
+echo "host: $ES_HOST"
+echo
+echo "index: $index"
+echo
+
+curl -sS -u $ES_USERNAME:$ES_PASSWORD -XGET "$ES_SCHEME://$ES_HOST:$ES_PORT/$index/_settings?pretty"
