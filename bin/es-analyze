@@ -18,7 +18,7 @@ if [ -z "$analyzer" ]; then
     analyzer=ik_smart
 fi
 
-echo 'Analyze an text with an analyzer, return the analyzed tokens.'
+echo 'Analyze text with an analyzer, return the analyzed tokens.'
 echo
 echo "host: $ES_HOST"
 echo
