@@ -1,0 +1,81 @@
+
+* 安装VirtualBox增强功能(没有图形界面，不用安装增强功能)
+
+* 安装Vim
+
+* 配置Vim，编辑文件/etc/vim/vimrc，加入以下命令：
+
+    syntax on
+    set number
+    set tabstop=4
+    set shiftwidth=4
+    set nobackup
+    set expandtab
+
+* 配置虚拟机网络，参考配置：
+
+    # The loopback network interface
+    auto lo
+    iface lo inet loopback
+
+    # The primary network interface
+    allow-hotplug enp0s3
+    iface enp0s3 inet dhcp
+    gateway 10.0.2.2
+
+    # The host only interface
+    allow-hotplug enp0s8
+    iface enp0s8 inet static
+    address 192.168.56.2
+    netmask 255.255.255.0
+
+* 编辑 /etc/bash.bashrc，文件末尾加入以下代码：
+
+    alias ls="ls --color"
+    alias grep="grep --color"
+
+    export TZ='Asia/Shanghai'
+
+* 设置软件仓库镜像
+
+* 安装 JDK，然后编辑 /etc/bash.bashrc，文件末尾加入以下代码：
+
+    export JAVA_HOME=/usr/local/jdk1.8.0_351
+    export PATH=$PATH:$JAVA_HOME/bin
+
+* 安装 Maven，然后编辑 /etc/bash.bashrc，文件末尾加入以下代码：
+
+    export MAVEN_HOME=/usr/local/apache-maven-3.8.6
+    export PATH=$PATH:$MAVEN_HOME/bin
+
+* Enable rc.local，教程：https://blog.wijman.net/enable-rc-local-in-debian-bullseye/
+
+* 安装 gcc 等编译套装
+
+    # 
+    apt-get install build-essential autoconf make
+
+* 确保有 netstat 等命令
+
+    # 默认已经不带 netstat 等命令了，放在 net-tools 这个包里
+    apt-get install net-tools
+
+* 安装 zip、unzip 命令
+
+* 安装 Nginx
+
+* 安装 Redis
+
+* 安装 MySQL(官方版，非MariaDB)
+
+* 自动挂载 VirtualBox 共享文件夹
+
+    # 在 /etc/fstab 文件中加入以下配置
+    # 共享名称  挂载点        文件系统类型    选项                                          dump    pass
+    develop     /mnt/develop  vboxsf          rw,gid=1000,uid=1000,dmode=0755,fmode=0644    0       0
+
+* 导出虚拟机，设为模板
+
+
+
+
