@@ -1,0 +1,32 @@
+
+# 列出所有topic
+bin/kafka-topics.sh --bootstrap-server $KAFKA_BOOTSTRAP_SERVERS --list
+
+# 查看topic信息
+bin/kafka-topics.sh --bootstrap-server $KAFKA_BOOTSTRAP_SERVERS --describe --topic a_topic
+
+# 创建topic
+bin/kafka-topics.sh --bootstrap-server $KAFKA_BOOTSTRAP_SERVERS --create --topic a_topic --partitions 2
+
+# 删除topic
+bin/kafka-topics.sh --bootstrap-server $KAFKA_BOOTSTRAP_SERVERS --delete --topic a_topic
+
+# 列出所有消费组
+bin/kafka-consumer-groups.sh --bootstrap-server $KAFKA_BOOTSTRAP_SERVERS --list
+
+# 检查消费组消费情况
+bin/kafka-consumer-groups.sh --bootstrap-server $KAFKA_BOOTSTRAP_SERVERS --describe --group a_group
+
+# 重置消费位置
+#
+# --reset-offsets also has following scenarios to choose from (atleast one scenario must be selected):
+#   --to-datetime <String: datetime> : Reset offsets to offsets from datetime. Format: 'YYYY-MM-DDTHH:mm:SS.sss'
+#   --to-earliest : Reset offsets to earliest offset.
+#   --to-latest : Reset offsets to latest offset.
+#   --shift-by <Long: number-of-offsets> : Reset offsets shifting current offset by 'n', where 'n' can be positive or negative.
+#   --from-file : Reset offsets to values defined in CSV file.
+#   --to-current : Resets offsets to current offset.
+#   --by-duration <String: duration> : Reset offsets to offset by duration from current timestamp. Format: 'PnDTnHnMnS'
+#   --to-offset : Reset offsets to a specific offset.
+#
+bin/kafka-consumer-groups.sh --bootstrap-server $KAFKA_BOOTSTRAP_SERVERS --reset-offsets --group a_group --topic a_topic --to-earliest

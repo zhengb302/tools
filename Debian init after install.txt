@@ -50,29 +50,63 @@
 
 * Enable rc.local，教程：https://blog.wijman.net/enable-rc-local-in-debian-bullseye/
 
-* 安装 gcc 等编译套装
+* 安装 GCC 等编译套装
 
-    # 
-    apt-get install build-essential autoconf make
+    ~# apt-get install build-essential autoconf make
 
 * 确保有 netstat 等命令
 
-    # 默认已经不带 netstat 等命令了，放在 net-tools 这个包里
-    apt-get install net-tools
+    # 默认已经不带 netstat 等命令了，而 netstat 命令放在 net-tools 这个包里
+    ~# apt-get install net-tools
 
 * 安装 zip、unzip 命令
 
+    ~# apt-get install zip unzip
+
 * 安装 Nginx
 
-* 安装 Redis
+    ~# apt-get install nginx
 
-* 安装 MySQL(官方版，非MariaDB)
+* 安装配置 Redis
 
-* 自动挂载 VirtualBox 共享文件夹
+    1. 配置 Redis，以便能被其他机器访问到
+
+        # 编辑 /etc/redis/redis.conf，找到 bind 命令，在 bind 命令后边新增一个IP：192.168.56.2，最终是这个样子：
+        bind 127.0.0.1 ::1 192.168.56.2
+
+    2. 重启 Redis
+
+        ~# systemctl restart redis
+
+* 安装配置 MySQL(官方版，非MariaDB)
+
+    1. 下载 mysql-apt-config.deb 包
+
+    2. 安装 mysql-apt-config.deb 包
+
+        ~# dpkg -i mysql-apt-config.deb
+
+    3. 更新一下仓库信息
+
+        ~# apt-get update
+
+    4. 安装 MySQL，安装过程中会要求输入 root 账户的密码
+
+        ~# apt-get install mysql-server
+
+    5. 查看 MySQL 运行状态
+
+        ~# systemctl status mysql
+
+* 开机自动挂载 VirtualBox 共享文件夹
 
     # 在 /etc/fstab 文件中加入以下配置
+    # 确保已经创建了 /mnt/develop 这个文件夹，并把该文件夹所属的用户和组更改为uid、gid都为1000的这个用户
+    #
     # 共享名称  挂载点        文件系统类型    选项                                          dump    pass
     develop     /mnt/develop  vboxsf          rw,gid=1000,uid=1000,dmode=0755,fmode=0644    0       0
+
+* 清理已经下载安装了的、不再有用的软件安装包
 
 * 导出虚拟机，设为模板
 

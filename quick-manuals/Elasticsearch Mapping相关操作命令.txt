@@ -1,0 +1,37 @@
+
+#
+# Mapping官方文档：https://www.elastic.co/guide/en/elasticsearch/reference/7.5/mapping.html
+#
+
+# 查看索引的字段映射属性
+curl -XGET "http://localhost:9200/a_index/_mapping?pretty"
+
+# 使用显式的Mapping配置创建一个索引
+curl -XPUT -H 'Content-Type: application/json' "http://localhost:9200/a_index?pretty" -d '
+{
+    "mappings": {
+        "properties": {
+            "age": {
+                "type": "integer"
+            },
+            "email": {
+                "type": "keyword"
+            },
+            "name": {
+                "type": "text"
+            }
+        }
+    }
+}
+'
+
+# 在已存在的索引中添加新的字段
+curl -XPUT -H 'Content-Type: application/json' "http://localhost:9200/a_index/_mapping?pretty" -d '
+{
+    "properties": {
+        "email": {
+            "type": "keyword"
+        }
+    }
+}
+'

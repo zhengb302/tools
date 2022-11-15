@@ -1,0 +1,37 @@
+
+【列出数据库列表】
+
+SHOW DATABASES;
+
+
+【创建数据库】
+
+CREATE DATABASE xxx;
+
+
+【创建用户】
+
+CREATE USER username IDENTIFIED BY 'password';
+
+
+【授权】
+
+# 授权 foo 用户拥有 bar 数据库的所有权限，密码：foobar
+# 如果用户不存在，则会自动创建一个
+# %必须加上引号，否则会报错
+# MySQL 8 及以上版本，要去掉后边的 identified by 子句，否则会报错
+GRANT ALL PRIVILEGES ON bar.* to foo@'%' IDENTIFIED BY 'foobar';
+
+# 刷新系统权限表
+FLUSH PRIVILEGES;
+
+
+【查看用户权限】
+
+SHOW GRANTS FOR foo@'localhost';
+
+SHOW GRANTS FOR foo;
+
+SHOW GRANTS FOR foo@'%';
+
+
