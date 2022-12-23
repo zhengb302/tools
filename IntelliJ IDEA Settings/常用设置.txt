@@ -1,0 +1,12 @@
+【编辑器（Editor）字体】
+
+Editor > Font
+
+    Font 改为“Fira Code”，Size 改为 16，Line height 就使用默认的 1.2，下面的 Typography Settings 里的 Main weight 改为 “Medium”
+
+
+【编辑器（Editor）配色方案】
+
+Editor > Color Scheme
+
+    Scheme 改为“Classic Light”
