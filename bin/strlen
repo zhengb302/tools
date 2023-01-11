@@ -1,0 +1,15 @@
+#!/bin/bash
+
+print_usage() {
+    echo "Usage:"
+    echo "  strlen STRING"
+}
+
+str=$1
+
+if [ -z "$str" ]; then
+    print_usage
+    exit -1
+fi
+
+echo ${#str}

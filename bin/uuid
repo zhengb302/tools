@@ -5,7 +5,6 @@ print_usage() {
     echo "Usage:"
     echo "  uuid           # Generate only one uuid"
     echo "  uuid 5         # Generate five uuids"
-    echo
 }
 
 num=$1
