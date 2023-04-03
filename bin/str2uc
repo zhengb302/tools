@@ -1,0 +1,16 @@
+#!/bin/bash
+
+print_usage() {
+    echo "String to upper case."
+    echo "Usage:"
+    echo "  str2uc STRING"
+}
+
+str="$1"
+
+if [ -z "$str" ]; then
+    print_usage
+    exit -1
+fi
+
+echo "$str" | tr a-z A-Z
