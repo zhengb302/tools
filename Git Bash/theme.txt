@@ -1,0 +1,6 @@
+
+Font：Lucida Console, 12-point
+
+Window Size：120 columns，25 rows
+
+
