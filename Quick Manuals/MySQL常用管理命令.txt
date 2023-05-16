@@ -9,9 +9,13 @@ SHOW DATABASES;
 CREATE DATABASE xxx;
 
 
-【创建用户】
+【创建/删除用户】
 
-CREATE USER username IDENTIFIED BY 'password';
+# 创建用户，用户名：foo，密码：bar
+CREATE USER foo IDENTIFIED BY 'bar';
+
+# 删除用户，用户名：foo
+DROP USER foo;
 
 
 【授权】
