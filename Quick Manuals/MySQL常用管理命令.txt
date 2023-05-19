@@ -20,10 +20,11 @@ DROP USER foo;
 
 【授权】
 
-# 授权 foo 用户拥有 bar 数据库的所有权限，密码：foobar
-# 如果用户不存在，则会自动创建一个
-# %必须加上引号，否则会报错
-# MySQL 8 及以上版本，要去掉后边的 identified by 子句，否则会报错
+# 授权 foo 用户拥有 bar 数据库的所有权限，密码：foobar。
+# 如果用户不存在，则会自动创建一个。
+# 百分号 % 必须加上引号，否则会报错。
+# MySQL 8 及以上版本，要去掉后边的 IDENTIFIED BY 子句，否则会报错。
+# 如果是授权给一个已经存在的用户，则不需要后边的 IDENTIFIED BY 子句。
 GRANT ALL PRIVILEGES ON bar.* to foo@'%' IDENTIFIED BY 'foobar';
 
 # 刷新系统权限表
