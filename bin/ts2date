@@ -1,0 +1,15 @@
+#!/bin/bash
+
+print_usage() {
+    echo "Convert a timestamp to a formatted date."
+    echo "Usage:"
+    echo "  ts2date TIMESTAMP"
+}
+
+timestamp=$1
+if [ -z "$timestamp" ]; then
+    print_usage
+    exit -1
+fi
+
+date -d @$timestamp '+%Y-%m-%d %H:%M:%S'
