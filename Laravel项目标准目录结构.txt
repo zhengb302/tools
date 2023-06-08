@@ -1,0 +1,91 @@
+
+【APP】
+
+app/
+
+    Console/
+
+    Exceptions/
+
+    Http/
+
+        Controllers/
+
+        Middleware/
+
+        Requests/
+
+    Models/
+
+    Providers/
+
+    ...
+
+bootstrap/
+
+config/
+
+database/
+
+public/
+
+resources/
+
+routes/
+
+storage/
+
+tests/
+
+vendor/
+
+.env
+
+.env.example
+
+artisan
+
+composer.json
+
+...
+
+
+【Library】
+
+src/
+
+    Console/
+
+    Exceptions/
+
+    Http/
+
+        Controllers/
+
+        Middleware/
+
+        Requests/
+
+    Models/
+
+    Providers/
+
+    ...
+
+config/
+
+database/
+
+resources/
+
+routes/
+
+tests/
+
+vendor/
+
+composer.json
+
+...
+
+
