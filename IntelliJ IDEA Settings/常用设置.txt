@@ -10,3 +10,10 @@ Editor > Font
 Editor > Color Scheme
 
     Scheme 改为“Classic Light”
+
+
+【已修改未保存的编辑器选项卡后边显示星号“*”】
+
+Editor > General > Editor Tabs
+
+    勾选 Appearance 下的 Mark modified(*) 复选框
