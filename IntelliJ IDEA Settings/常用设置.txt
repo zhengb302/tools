@@ -17,3 +17,10 @@ Editor > Color Scheme
 Editor > General > Editor Tabs
 
     勾选 Appearance 下的 Mark modified(*) 复选框
+
+
+【编辑器（Editor）换行线设置为80】
+
+Editor > Code Style
+
+    General 选项卡下的 Hard wrap at __ columns 设置为 80。
